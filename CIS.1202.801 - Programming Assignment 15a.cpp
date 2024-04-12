@@ -62,10 +62,10 @@ int main() {
             char result = character(test[0], test[1]);
             std::cout << "character('" << test[0] << "', " << (int)test[1] << ") should return '" << result << "'.\n";
         }
-        catch (const invalidCharacterException& e) {
+        catch (const invalidCharacterException) {
             std::cout << "character('" << test[0] << "', " << (int)test[1] << ") should throw an invalidCharacterException.\n";
         }
-        catch (const invalidRangeException& e) {
+        catch (const invalidRangeException) {
             std::cout << "character('" << test[0] << "', " << (int)test[1] << ") should throw an invalidRangeException.\n";
         }
     }
