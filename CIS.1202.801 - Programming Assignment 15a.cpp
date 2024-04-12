@@ -46,6 +46,28 @@ char character(char start, int offset) {
 }
 
 int main() {
-    // Placeholder for driver code
+
+    // Test values
+    char testCases[][2] = {
+        {'a', 1},
+        {'a', -1},
+        {'Z', -1},
+        {'?', 5},
+        {'A', 32}
+    };
+
+    for (auto& test : testCases) {
+        try {
+            char result = character(test[0], test[1]);
+            std::cout << "character('" << test[0] << "', " << (int)test[1] << ") should return '" << result << "'.\n";
+        }
+        catch (const invalidCharacterException& e) {
+            std::cout << "character('" << test[0] << "', " << (int)test[1] << ") should throw an invalidCharacterException.\n";
+        }
+        catch (const invalidRangeException& e) {
+            std::cout << "character('" << test[0] << "', " << (int)test[1] << ") should throw an invalidRangeException.\n";
+        }
+    }
+
     return 0;
 }
