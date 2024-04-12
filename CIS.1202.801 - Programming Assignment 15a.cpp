@@ -37,8 +37,9 @@ char character(char start, int offset) {
     // Calculate target character
     char target = start + offset;
 
-    // Check if target is a valid letter
-    if (!((target >= 'A' && target <= 'Z') || (target >= 'a' && target <= 'z'))) {
+    // Check if target has transitioned from upper to lowercase or vice versa
+    if ((start >= 'A' && start <= 'Z' && (target < 'A' || target > 'Z')) ||
+        (start >= 'a' && start <= 'z' && (target < 'a' || target > 'z'))) {
         throw invalidRangeException();
     }
 
