@@ -28,7 +28,21 @@ public:
 
 // Function to calculate character offsets
 char character(char start, int offset) {
-    return start + offset; // Placeholder, to be replaced with actual logic
+
+    // Check if start is a letter
+    if (!((start >= 'A' && start <= 'Z') || (start >= 'a' && start <= 'z'))) {
+        throw invalidCharacterException();
+    }
+
+    // Calculate target character
+    char target = start + offset;
+
+    // Check if target is a valid letter
+    if (!((target >= 'A' && target <= 'Z') || (target >= 'a' && target <= 'z'))) {
+        throw invalidRangeException();
+    }
+
+    return target;
 }
 
 int main() {
